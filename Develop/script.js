@@ -147,3 +147,5 @@ addEmployeesBtn.addEventListener('click', trackEmployeeData);
 
 
 // always put event listeners at the bottom- everything loads first and then give access to different functions
+
+// TODO cancel needs to close box
