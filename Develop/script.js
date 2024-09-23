@@ -5,23 +5,78 @@ const addEmployeesBtn = document.querySelector('#add-employees-btn');
 const collectEmployees = function() {
   // TODO: Get user input to create and return an array of employee objects
 
+  let addEmployee = true;
+
   const employeesArray = [];
   // creates the employees list variable as an array named employeesArray
 
-  const firstName = prompt('enter your first name');
-  // sets the value of a new variable named firstName to whatever the prompt entered by the user is in this field.
-  //
+  while(addEmployee) {
+    // checking if addEmployee value is truthy, then run code below if it is
 
-};
+  const firstNamePrompt = prompt('enter your first name');
+  // sets the value of a new variable named firstName to whatever the prompt entered by the user is in this field.
+
+  const lastNamePrompt = prompt('enter your last name');
+
+  const salaryPrompt = prompt('enter your salary');
+
+  const employeeObject = {
+    firstName: firstNamePrompt,
+    lastName: lastNamePrompt,
+    salary: parseInt(salaryPrompt),
+
+    // calling the key firstname and the value is firstNamePrompt
+  }
+
+
+  employeesArray.push(employeeObject);
+
+  addEmployee = confirm('do you want to add another employee?')
+  // changing original variable
+}
+  return employeesArray;
+  // return doesn't need parentheses. similar to declaring a variable
+
+  
+
+
+}
+
+// semicolon on single lines and not on multiple line
+
+// you can always look up, can't look down
+
+// cant use a semicolon within an object, comma separate
+
+// TODO look up JS rules 
+
+// always make variable names very descriptive
+
+// objects are useful to store multiple values that go together for one thing (i.e. one person)
+
+
+
 
 // Display the average salary
 const displayAverageSalary = function (employeesArray) {
   // TODO: Calculate and display the average salary
+  let totalEmployeeSalary = 0;
+  for (let i = 0; i < employeesArray.length; i++) {
+    const employee = employeesArray[i];
+    totalEmployeeSalary += employee.salary;
+    // each employee salary gets added on tothe total. += is equal to myself plus the next value 
+  }
+  console.log('average salary is: ' + totalEmployeeSalary / employeesArray.length);
 };
 
 // Select a random employee
 const getRandomEmployee = function (employeesArray) {
   // TODO: Select and display a random employee
+  let randomNumber = Math.floor(Math.random() * employeesArray.length)
+  // how many employees we have is how long we want the random number to be
+
+  console.log('random employee is: ' + employeesArray[randomNumber].firstName + " " + employeesArray[randomNumber].lastName)
+  // room with other rooms inside
 };
 
 /*
@@ -90,5 +145,5 @@ const trackEmployeeData = function () {
 // Add event listener to 'Add Employees' button
 addEmployeesBtn.addEventListener('click', trackEmployeeData);
 
-addEmployeesBtn.addEventListener('click', collectEmployees());
-// on the click event, for the addEmployeesBtn object, invoke the collectEmployees function.
+
+// always put event listeners at the bottom- everything loads first and then give access to different functions
