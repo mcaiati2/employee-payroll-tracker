@@ -30,7 +30,7 @@ const collectEmployees = function() {
   const employeeObject = {
     firstName: firstNamePrompt,
     lastName: lastNamePrompt,
-    salary: salary,
+    salary: salaryPrompt,
    
   }
 
@@ -68,7 +68,6 @@ const displayAverageSalary = function (employeesArray) {
     totalEmployeeSalary += employee.salary;
     // each employee salary gets added on tothe total. += is equal to myself plus the next value 
   }
-  const averageSalary = (totalEmployeeSalary / employeesArray.length).toFixed[2];
   console.log('average salary is: ' + totalEmployeeSalary / employeesArray.length);
 };
 
