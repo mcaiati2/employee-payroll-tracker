@@ -14,13 +14,13 @@ const collectEmployees = function() {
 
   const firstNamePrompt = prompt('enter your first name');
   // sets the value of a new variable named firstName to whatever the prompt entered by the user is in this field.
-  if (firstNamePrompt === null) break;
-
   const lastNamePrompt = prompt('enter your last name');
-  if (lastNamePrompt === null) break;
-
   const salaryPrompt = prompt('enter your salary');
-  if (salaryPrompt === null) break;
+
+  if (!firstNamePrompt || !lastNamePrompt) {
+    alert('You are required to provide a first name and a last name.');
+    continue;
+  }
 
   let salary = parseInt(salaryPrompt);
   if (isNaN(salary)) {
@@ -30,7 +30,7 @@ const collectEmployees = function() {
   const employeeObject = {
     firstName: firstNamePrompt,
     lastName: lastNamePrompt,
-    salary: salaryPrompt,
+    salary: salary,
    
   }
 
@@ -68,7 +68,8 @@ const displayAverageSalary = function (employeesArray) {
     totalEmployeeSalary += employee.salary;
     // each employee salary gets added on tothe total. += is equal to myself plus the next value 
   }
-  console.log('average salary is: ' + totalEmployeeSalary / employeesArray.length);
+  const averageSalary = (totalEmployeeSalary / employeesArray.length).toFixed(2);
+  console.log('The average employee salary between our ' + employeesArray.length + ' employee(s) is: ' + averageSalary);
 };
 
 // Select a random employee

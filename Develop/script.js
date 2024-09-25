@@ -2,84 +2,59 @@
 const addEmployeesBtn = document.querySelector('#add-employees-btn');
 
 // Collect employee data
-const collectEmployees = function() {
-  // TODO: Get user input to create and return an array of employee objects
+const collectEmployees = function () {
 
   let addEmployee = true;
   const employeesArray = [];
-  // creates the employees list variable as an array named employeesArray
 
-  while(addEmployee) {
-    // checking if addEmployee value is truthy, then run code below if it is
+  while (addEmployee) {
 
-  const firstNamePrompt = prompt('enter your first name');
-  // sets the value of a new variable named firstName to whatever the prompt entered by the user is in this field.
-  if (firstNamePrompt === null) break;
+    const firstNamePrompt = prompt('enter your first name');
+    const lastNamePrompt = prompt('enter your last name');
+    const salaryPrompt = prompt('enter your salary');
 
-  const lastNamePrompt = prompt('enter your last name');
-  if (lastNamePrompt === null) break;
+    if (!firstNamePrompt || !lastNamePrompt) {
+      alert('You are required to provide a first name and a last name.');
+      continue;
+    }
 
-  const salaryPrompt = prompt('enter your salary');
-  if (salaryPrompt === null) break;
+    let salary = parseInt(salaryPrompt);
+    if (isNaN(salary)) {
+      salary = 0;
+    }
 
-  let salary = parseInt(salaryPrompt);
-  if (isNaN(salary)) {
-    salary = 0;
+    const employeeObject = {
+      firstName: firstNamePrompt,
+      lastName: lastNamePrompt,
+      salary: salary,
+
+    }
+
+
+    employeesArray.push(employeeObject);
+
+    addEmployee = confirm('do you want to add another employee?')
   }
-
-  const employeeObject = {
-    firstName: firstNamePrompt,
-    lastName: lastNamePrompt,
-    salary: salary,
-   
-  }
-
-
-  employeesArray.push(employeeObject);
-  // adds the employeeObject to the end of the employeesArray array
-
-  addEmployee = confirm('do you want to add another employee?')
-  // changing original variable
-}
   return employeesArray;
-  // return doesn't need parentheses. similar to declaring a variable
 
 };
 
-// semicolon on single lines and not on multiple line
-
-// you can always look up, can't look down
-
-// cant use a semicolon within an object, comma separate
-
-// always make variable names very descriptive
-
-// objects are useful to store multiple values that go together for one thing (i.e. one person)
-
-
-
-
 // Display the average salary
 const displayAverageSalary = function (employeesArray) {
-  // TODO: Calculate and display the average salary
   let totalEmployeeSalary = 0;
   for (let i = 0; i < employeesArray.length; i++) {
     const employee = employeesArray[i];
     totalEmployeeSalary += employee.salary;
-    // each employee salary gets added on tothe total. += is equal to myself plus the next value 
   }
-  const averageSalary = (totalEmployeeSalary / employeesArray.length).toFixed[2];
-  console.log('average salary is: ' + totalEmployeeSalary / employeesArray.length);
+  const averageSalary = (totalEmployeeSalary / employeesArray.length).toFixed(2);
+  console.log(`The average employee salary between our ${employeesArray.length} employee(s) is $${averageSalary}`);
+
 };
 
 // Select a random employee
 const getRandomEmployee = function (employeesArray) {
-  // TODO: Select and display a random employee
-  let randomNumber = Math.floor(Math.random() * employeesArray.length)
-  // how many employees we have is how long we want the random number to be
-
+  let randomNumber = Math.floor(Math.random() * employeesArray.length);
   console.log('Congratulations to ' + employeesArray[randomNumber].firstName + " " + employeesArray[randomNumber].lastName + ', our random drawing winner!')
-  // room with other rooms inside
 };
 
 /*
