@@ -30,5 +30,4 @@ The **Payroll Tracker** is a robust web application designed to streamline payro
 
 1. **Clone the Repository**  
    ```bash
-   git clone https://github.com/Adonis99Jordan/Payroll_tracker_challenge3.git
-   cd Payroll_tracker_challenge3
+   git clone https://github.com/mcaiati2/employee-payroll-tracker
